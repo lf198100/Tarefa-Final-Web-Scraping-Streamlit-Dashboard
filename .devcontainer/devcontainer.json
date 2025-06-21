@@ -1,0 +1,44 @@
+{
+  "name": "Python 3.12 Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+
+  "features": {},
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy",
+        "ms-vscode.live-server",
+        "ritwickdey.LiveServer",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+
+        "livePreview.port": 3000,
+        "livePreview.defaultPreviewPath": "/index.html",
+
+        "liveServer.settings.port": 5500,
+        "liveServer.settings.host": "0.0.0.0"
+      }
+    }
+  },
+
+  "forwardPorts": [3000, 5500],
+
+  "portsAttributes": {
+    "3000": {
+      "label": "Live Preview (MS)",
+      "onAutoForward": "openBrowser",
+      "requireLocalPort": false
+    },
+    "5500": {
+      "label": "Live Server (Ritwick Dey)",
+      "onAutoForward": "openBrowser",
+      "requireLocalPort": false
+    }
+  },
+  "postCreateCommand": "pip install --upgrade pip && pip install pytest beautifulsoup4 requests streamlit pandas plotly"
+}
