@@ -26,7 +26,8 @@ Nesta atividade final, vocês vão integrar tudo o que aprenderam sobre web scra
 ├── main.py                     ← editem para construir o dashboard streamlit
 ├── tests/*                     ← não mexam
 ├── README.md                   ← este arquivo (instruções da atividade)
-└── scraper.py                  ← editem para fazer o scrape da página escolhida
+├── scraper.py                  ← editem para fazer o scrape da página escolhida
+└── test_scraping.py            ← não mexam
 ```
 
 ---
@@ -37,7 +38,7 @@ Nesta atividade final, vocês vão integrar tudo o que aprenderam sobre web scra
    - Deve ser público, sem JavaScript dinâmico, com elementos html (tags e classes css) fáceis de ser identificados.
    - Ex.: Wikipedia, IMDB, Oxylabs, Quotes to Scrape, Reddit.
    - Não usem Books to Scrape e Yahoo Finance, porque já usamos em aula.
-   - Informem até o dia 21/06 (sábado) nos links abaixo, qual o site sua dupla irá usar. A mesma url só pode ser usada por até duas duplas. 
+   - Informem até a proxima aula da respectiva turma, nos links abaixo, qual o site sua dupla irá usar. A mesma url só pode ser usada por até duas duplas. Se, ao tentarem editar a planilha, a url desejada já estiver citada, escolham outra.
      - [Barra](https://docs.google.com/spreadsheets/d/11U5fICUEJEU6CPKlOsfUEc-M75L7kAt8wk66yiFyEAw/edit?usp=sharing)
 
      - [Botafogo1](https://docs.google.com/spreadsheets/d/1HZi-2hqh0inLDt-IUQvCVF911OFnfE_29doBAHKOL4A/edit?usp=sharing)
