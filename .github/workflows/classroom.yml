@@ -1,8 +1,10 @@
 name: Autograding Tests
 
 on:
-  - push
-  - repository_dispatch
+  push:
+    branches:
+      - main
+  repository_dispatch:
 
 permissions:
   checks: write
@@ -21,7 +23,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-        working-directory: ./
 
       - name: prog1-tarefa-scrap-yahoo-test
         id: prog1-tarefa-scrap-yahoo-test
@@ -33,8 +34,6 @@ jobs:
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
-          PROG1-TAREFA-SCRAP-YAHOO-TEST_RESULTS: "${{steps.prog1-tarefa-scrap-yahoo-test.outputs.result}}"
+          PROG1-TAREFA-SCRAP-YAHOO-TEST_RESULTS: "${{ steps.prog1-tarefa-scrap-yahoo-test.outputs.result }}"
         with:
           runners: prog1-tarefa-scrap-yahoo-test
-
-
