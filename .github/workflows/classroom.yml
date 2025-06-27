@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  repository_dispatch:
+  workflow_dispatch:  # Correção de 'repository_dispatch' inválido para usuários normais
 
 permissions:
   checks: write
@@ -24,8 +24,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-          - name: Check installed packages
-          pip list
+      - name: Check installed packages
+        run: pip list
 
       - name: prog1-tarefa-scrap-yahoo-test
         id: prog1-tarefa-scrap-yahoo-test
@@ -40,3 +40,4 @@ jobs:
           PROG1-TAREFA-SCRAP-YAHOO-TEST_RESULTS: "${{ steps.prog1-tarefa-scrap-yahoo-test.outputs.result }}"
         with:
           runners: prog1-tarefa-scrap-yahoo-test
+
