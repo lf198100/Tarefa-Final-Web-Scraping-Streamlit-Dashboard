@@ -17,11 +17,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -37,9 +32,6 @@ jobs:
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
-          PROG1-PROVA-AV-TEST_RESULTS: "${{ steps.prog1-prova-av-test.outputs.result }}"
+          PROG1-PROVA-AV-TEST_RESULTS: "${{steps.prog1-prova-av-test.outputs.result}}"
         with:
           runners: prog1-prova-av-test
-
-          
-
