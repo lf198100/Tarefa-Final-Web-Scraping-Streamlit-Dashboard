@@ -21,6 +21,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+           working-directory: ./
 
       - name: prog1-tarefa-scrap-yahoo-test
         id: prog1-tarefa-scrap-yahoo-test
