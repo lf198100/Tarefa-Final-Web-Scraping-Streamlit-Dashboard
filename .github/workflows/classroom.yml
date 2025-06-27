@@ -1,14 +1,13 @@
 name: Autograding Tests
 
 on:
-  push:
-  repository_dispatch:
+  - push
+  - repository_dispatch
 
 permissions:
   checks: write
   actions: read
   contents: read
-
 
 jobs:
   run-autograding-tests:
@@ -36,4 +35,5 @@ jobs:
           PROG1-TAREFA-SCRAP-YAHOO-TEST_RESULTS: "${{steps.prog1-tarefa-scrap-yahoo-test.outputs.result}}"
         with:
           runners: prog1-tarefa-scrap-yahoo-test
+
 
