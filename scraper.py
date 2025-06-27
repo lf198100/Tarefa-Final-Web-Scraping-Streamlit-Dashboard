@@ -21,16 +21,44 @@ def fetch_page(url):
     Faz GET em `url` e retorna HTML como string.
     """
     headers = generate_user_agent()
-        
-    return ""
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  
+        return response.text
+    except requests.RequestException as e:
+        print(f"Erro ao buscar a página: {e}")
+        sys.exit(1)
 
 def parse_data(html):
     """
-    Recebe HTML e retorna uma lista de dicionarios dos dados capturados
+    Recebe HTML e retorna uma lista de dicionários dos dados capturados.
     """
-    lista = []
+    soup = BeautifulSoup(html, "html.parser")
+    table = soup.find("table", {"class": "wikitable"})
 
+    lista = []
+    if not table:
+        print("Tabela não encontrada.")
+        return lista
+
+    headers = [th.text.strip() for th in table.find("tr").find_all("th")]
+
+    # Remove as duas primeiras colunas dos headers também
+    headers = headers[2:]
+
+    for row in table.find_all("tr")[1:]:
+        cols = row.find_all(["td", "th"])
+        if len(cols) < len(headers) + 2:
+            continue
+        # Ignora as duas primeiras células da linha
+        cols = cols[2:]
+        if len(cols) != len(headers):
+            # Linha com número de colunas diferente, ignora
+            continue
+        item = {headers[i]: cols[i].text.strip() for i in range(len(headers))}
+        lista.append(item)
     return lista
+
 
 def save_to_csv(data, filename):
     """
@@ -50,10 +78,11 @@ def generate_csv():
     Helper CLI: baixa a página, parseia e salva 'dados/output.csv'.
     """
     # Altere com a url do seu projeto"
-    URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+    URL = "https://pt.wikipedia.org/wiki/Lista_de_pa%C3%ADses_por_popula%C3%A7%C3%A3o"
     html = fetch_page(URL)
     data = parse_data(html)
     save_to_csv(data, "dados/output.csv")
 
 if __name__ == "__main__":
     generate_csv()
+    
