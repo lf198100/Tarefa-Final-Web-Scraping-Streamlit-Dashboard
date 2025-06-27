@@ -9,6 +9,7 @@ permissions:
   actions: read
   contents: read
 
+
 jobs:
   run-autograding-tests:
     runs-on: ubuntu-latest
@@ -22,8 +23,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: prog1-prova-av-test
-        id: prog1-prova-av-test
+      - name: prog1-tarefa-scrap-yahoo-test
+        id: prog1-tarefa-scrap-yahoo-test
         uses: classroom-resources/autograding-python-grader@v1
         with:
           timeout: 10
@@ -32,6 +33,7 @@ jobs:
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
-          PROG1-PROVA-AV-TEST_RESULTS: "${{steps.prog1-prova-av-test.outputs.result}}"
+          PROG1-TAREFA-SCRAP-YAHOO-TEST_RESULTS: "${{steps.prog1-tarefa-scrap-yahoo-test.outputs.result}}"
         with:
-          runners: prog1-prova-av-test
+          runners: prog1-tarefa-scrap-yahoo-test
+
