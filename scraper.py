@@ -4,6 +4,14 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import pandas as pd
+import subprocess
+import sys
+
+try:
+    import requests
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "requests"])
+    import requests
 
 def generate_user_agent():
     """
