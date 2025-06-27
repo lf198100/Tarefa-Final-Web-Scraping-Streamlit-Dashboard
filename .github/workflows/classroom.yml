@@ -1,27 +1,33 @@
 name: Autograding Tests
-'on':
-- push
-- repository_dispatch
+
+on:
+  push:
+  repository_dispatch:
+
 permissions:
   checks: write
   actions: read
   contents: read
+
 jobs:
   run-autograding-tests:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: prog1-prova-av-test
-      id: prog1-prova-av-test
-      uses: classroom-resources/autograding-python-grader@v1
-      with:
-        timeout: 10
-        setup-command: ''
-    - name: Autograding Reporter
-      uses: classroom-resources/autograding-grading-reporter@v1
-      env:
-        PROG1-PROVA-AV-TEST_RESULTS: "${{steps.prog1-prova-av-test.outputs.result}}"
-      with:
-        runners: prog1-prova-av-test
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: prog1-prova-av-test
+        id: prog1-prova-av-test
+        uses: classroom-resources/autograding-python-grader@v1
+        with:
+          timeout: 10
+          setup-command: ''
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          PROG1-PROVA-AV-TEST_RESULTS: "${{steps.prog1-prova-av-test.outputs.result}}"
+        with:
+          runners: prog1-prova-av-test
+
