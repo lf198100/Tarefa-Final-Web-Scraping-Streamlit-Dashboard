@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/97-nCYdQ)
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=19859465)
 # Programa Aplicada 1
@@ -132,7 +131,3 @@ A dupla deve gravar um vídeo apresentando o projeto em duas partes:
 
 
 #### 🤞🏽 Bom trabalho e boa sorte!
-=======
-# Tarefa-Final-Web-Scraping-Streamlit-Dashboard
-Trabalho de Programa Aplicada 1
->>>>>>> ce4517a83f2bfd57aa5cb2491a39b276a77926b9

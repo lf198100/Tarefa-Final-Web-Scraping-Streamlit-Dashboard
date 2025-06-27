@@ -24,6 +24,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+          - name: Check installed packages
+          pip list
+
       - name: prog1-tarefa-scrap-yahoo-test
         id: prog1-tarefa-scrap-yahoo-test
         uses: classroom-resources/autograding-python-grader@v1
